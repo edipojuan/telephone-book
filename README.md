@@ -6,7 +6,7 @@
 
 ### Prerequisites
 
-**Você precisará ter o Docker e docker-compose instalado.**
+Você precisará ter o **Docker** e o **Docker Compose** instalado.
 
 ### Installing
 
