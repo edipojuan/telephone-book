@@ -6,12 +6,12 @@
 
 ### Prerequisites
 
-**Você precisará ter o Docker e docker-compose instalado.
+**Você precisará ter o Docker e docker-compose instalado.**
 
 ### Installing
 
 ```
-docker=compose up
+docker-compose up
 ```
 
 ## Built With
@@ -27,7 +27,10 @@ docker=compose up
 - [Express](https://expressjs.com/pt-br/)
 - [mongoose](https://mongoosejs.com/)
 
+### Database
+
+- [mongodb](https://www.mongodb.com/)
+
 ## Author
 
 - **Édipo Juan** - _github_ - [edipojs](https://github.com/edipojs)
-

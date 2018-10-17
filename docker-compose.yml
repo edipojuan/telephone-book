@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  db:
+    container_name: db
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27017:27017'
+
+  server:
+    container_name: app
+    restart: always
+    build:
+      context: ./server/
+    command: npm start
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./server/:/usr/app
+      - /usr/app/node_modules
+    links:
+      - db
+
+  client.sandbox:
+    build:
+      context: ./client/
+      args:
+        env: sandbox
+    volumes:
+      - ./client/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - '8080:80'
+  client.prod:
+    build:
+      context: ./client/
+      args:
+        env: prod
+    volumes:
+      - ./client/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - '8081:80'
