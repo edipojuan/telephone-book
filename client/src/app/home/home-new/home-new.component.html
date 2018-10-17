@@ -1,0 +1,89 @@
+<h2 mat-dialog-title align="center">{{ title }}</h2>
+
+<hr>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+
+  <mat-dialog-content>
+
+    <mat-form-field>
+      <input matInput placeholder="Nome" formControlName="name" maxlength="30">
+      <mat-error>
+        O <i>Nome</i> é <strong>obrigatório</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div formArrayName="phones" *ngFor="let item of form.get('phones').controls; let i = index;">
+      <div [formGroupName]="i">
+        <div class="row">
+          <div class="col-md-1">
+            <button mat-icon-button color="warn" (click)="deleteControl(i, 'phones')">
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field>
+              <mat-select placeholder="Tipo" formControlName="type">
+                <mat-option *ngFor="let type of typesPhone" [value]="type">{{type}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-7">
+            <mat-form-field>
+              <input matInput placeholder="Telefone" formControlName="value" maxlength="20">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <mat-dialog-actions align="end">
+      <button mat-button color="primary" type="button" (click)="addControl('phones')">adicionar telefone</button>
+    </mat-dialog-actions>
+
+    <div formArrayName="emails" *ngFor="let item of form.get('emails').controls; let i = index;">
+      <div [formGroupName]="i">
+        <div class="row">
+          <div class="col-md-1">
+            <button mat-icon-button color="warn" (click)="deleteControl(i, 'emails')">
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field>
+              <mat-select placeholder="Tipo" formControlName="type">
+                <mat-option *ngFor="let type of typesEmail" [value]="type">{{type}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-md-7">
+            <mat-form-field>
+              <input matInput placeholder="E-mail" formControlName="value" maxlength="50">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <mat-dialog-actions align="end">
+      <button mat-button color="primary" type="button" (click)="addControl('emails')">adicionar e-mail</button>
+    </mat-dialog-actions>
+
+    <mat-form-field>
+      <input matInput placeholder="Empresa" formControlName="company" maxlength="30">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Cargo" formControlName="office" maxlength="30">
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <hr>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button color="primary" type="submit">Salvar</button>
+  </mat-dialog-actions>
+
+</form>

@@ -1,0 +1,40 @@
+{
+  "name": "agenda-telefonica-api",
+  "version": "1.0.0",
+  "description": "Agenda telefônica com autenticação via código.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon bin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edipojs/agenda-telefonica-api.git"
+  },
+  "keywords": [
+    "agenda",
+    "telefone",
+    "autenticacao",
+    "api",
+    "authenticate",
+    "node",
+    "express",
+    "mongoose"
+  ],
+  "author": "Édipo Juan <edipojs@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edipojs/agenda-telefonica-api/issues"
+  },
+  "homepage": "https://github.com/edipojs/agenda-telefonica-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}

@@ -1,0 +1,16 @@
+mat-form-field {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.mat-icon-button {
+  width: initial;
+  height: 34px;
+  line-height: initial;
+  border-radius: initial;
+  margin-top: 14px;
+}
+
+.mat-dialog-actions {
+  margin-bottom: -14px;
+}
