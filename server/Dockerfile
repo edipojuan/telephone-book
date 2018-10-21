@@ -1,12 +1,13 @@
 FROM node:alpine
 
-WORKDIR /usr/app
+ENV HOME=/home/app/server_node/
 
-COPY package*.json ./
-RUN npm install
+COPY package.json package-lock.json $HOME/server_node/
 
-COPY . .
+WORKDIR $HOME/server_node
 
-EXPOSE 3000
+RUN npm install --silent --progress=false
+
+COPY . $HOME/server_node/
 
 CMD ["npm", "start"]
