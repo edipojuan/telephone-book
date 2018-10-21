@@ -1,16 +1,15 @@
 version: '3'
 
 services:
-  db:
-    container_name: db
+  mongodb:
     image: mongo
-    volumes:
-      - ./data:/data/db
+    container_name: mongodb
+    restart: always
     ports:
       - '27017:27017'
-
+    command: mongod --replSet rs1 --shardsvr --port 27017  --oplogSize 16 --noprealloc --smallfiles
   server:
-    container_name: app
+    container_name: server
     restart: always
     build:
       context: ./server/
@@ -21,25 +20,24 @@ services:
       - ./server/:/usr/app
       - /usr/app/node_modules
     links:
-      - db
-
-  client.sandbox:
-    build:
-      context: ./client/
-      args:
-        env: sandbox
-    volumes:
-      - ./client/:/usr/app
-      - /usr/app/node_modules
-    ports:
-      - '8080:80'
-  client.prod:
-    build:
-      context: ./client/
-      args:
-        env: prod
-    volumes:
-      - ./client/:/usr/app
-      - /usr/app/node_modules
-    ports:
-      - '8081:80'
+      - mongodb
+  # client.sandbox:
+  #   build:
+  #     context: ./client/
+  #     args:
+  #       env: sandbox
+  #   volumes:
+  #     - ./client/:/usr/app
+  #     - /usr/app/node_modules
+  #   ports:
+  #     - '8080:80'
+  # client.prod:
+  #   build:
+  #     context: ./client/
+  #     args:
+  #       env: prod
+  #   volumes:
+  #     - ./client/:/usr/app
+  #     - /usr/app/node_modules
+  #   ports:
+  #     - '8081:80'
