@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng build --env=prod --prod --build-optimizer",
-    "build:sandbox": "ng build --env=sandbox ---prod --build-optimizer"
+    "build:prod": "ng build --configuration=production --prod --build-optimizer",
+    "build:sandbox": "ng build --configuration=sandbox ---prod --build-optimizer"
   },
   "private": true,
   "dependencies": {
