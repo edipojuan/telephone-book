@@ -21,23 +21,14 @@ services:
       - /usr/app/node_modules
     links:
       - mongodb
-  # client.sandbox:
-  #   build:
-  #     context: ./client/
-  #     args:
-  #       env: sandbox
-  #   volumes:
-  #     - ./client/:/usr/app
-  #     - /usr/app/node_modules
-  #   ports:
-  #     - '8080:80'
-  # client.prod:
-  #   build:
-  #     context: ./client/
-  #     args:
-  #       env: prod
-  #   volumes:
-  #     - ./client/:/usr/app
-  #     - /usr/app/node_modules
-  #   ports:
-  #     - '8081:80'
+  client:
+    container_name: client
+    build:
+      context: ./client/
+    volumes:
+      - ./client/:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - '80:80'
+    links:
+      - server
