@@ -9,8 +9,6 @@ import { Routing } from './app.routes';
 import { AuthGuard } from './guards/auth.guard';
 import { httpInterceptorProviders } from './interceptors/http-interceptor.providers';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -37,7 +35,6 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     Routing,
-    FlexLayoutModule,
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,

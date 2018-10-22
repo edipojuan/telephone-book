@@ -1,53 +1,45 @@
-<div class="container" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center">
+<mat-card>
+  <mat-card-title align="center">Contatos</mat-card-title>
+  <mat-card-content align="center">
 
-  <mat-card>
-    <mat-card-title align="center">Contatos</mat-card-title>
-    <mat-card-content align="center">
+    <button mat-button color="warn" (click)="logout()">Sair</button>
 
-      <button mat-button color="warn" (click)="logout()">Sair</button>
+    <mat-form-field>
+      <input matInput placeholder="Buscar Contato" (input)="onSearchChange($event.target.value)" autocomplete="off">
+    </mat-form-field>
 
-      <mat-form-field>
-        <input matInput placeholder="Buscar Contato" (input)="onSearchChange($event.target.value)" autocomplete="off">
-      </mat-form-field>
+    <button mat-button color="primary" (click)="openDialog()">Novo</button>
 
-      <button mat-button color="primary" (click)="openDialog()">Novo</button>
+  </mat-card-content>
+</mat-card>
 
-    </mat-card-content>
-  </mat-card>
+<mat-card *ngFor="let contact of contacts">
 
-</div>
+  <mat-card-title align="center">
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">{{ contact.name }}</p>
+      <footer class="blockquote-footer">{{ contact.office }}
+        <b>{{ contact.company ? ' em ' : '' }}</b>
+        <cite title="Source Title">{{ contact.company }}</cite>
+      </footer>
+    </blockquote>
+  </mat-card-title>
 
-<div class="container" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center">
+  <mat-card-content align="center">
 
-  <mat-card *ngFor="let contact of contacts">
+    <div *ngFor="let phone of contact.phones">
+      <b>{{ phone.type }}:</b> {{ phone.value }} <i><abbr title="attribute">{{ phone.value ? '' : 'Não informado' }}</abbr></i>
+    </div>
+    <br>
+    <div *ngFor="let email of contact.emails">
+      <b>{{ email.type }}:</b> {{ email.value }} <i><abbr title="attribute">{{ email.value ? '' : 'Não informado' }}</abbr></i>
+    </div>
 
-    <mat-card-title align="center">
-      <blockquote class="blockquote text-center">
-        <p class="mb-0">{{ contact.name }}</p>
-        <footer class="blockquote-footer">{{ contact.office }}
-          <b>{{ contact.company ? ' em ' : '' }}</b>
-          <cite title="Source Title">{{ contact.company }}</cite>
-        </footer>
-      </blockquote>
-    </mat-card-title>
+  </mat-card-content>
 
-    <mat-card-content align="center">
+  <mat-card-actions align="center">
+    <button mat-button (click)="edit(contact)" color="primary">Editar Contato</button>
+    <button mat-button (click)="delete(contact._id)" color="warn">Apagar Contato</button>
+  </mat-card-actions>
 
-      <div *ngFor="let phone of contact.phones">
-        <b>{{ phone.type }}:</b> {{ phone.value }} <i><abbr title="attribute">{{ phone.value ? '' : 'Não informado' }}</abbr></i>
-      </div>
-      <br>
-      <div *ngFor="let email of contact.emails">
-        <b>{{ email.type }}:</b> {{ email.value }} <i><abbr title="attribute">{{ email.value ? '' : 'Não informado' }}</abbr></i>
-      </div>
-
-    </mat-card-content>
-
-    <mat-card-actions align="center">
-      <button mat-button (click)="edit(contact)" color="primary">Editar Contato</button>
-      <button mat-button (click)="delete(contact._id)" color="warn">Apagar Contato</button>
-    </mat-card-actions>
-
-  </mat-card>
-
-</div>
+</mat-card>
