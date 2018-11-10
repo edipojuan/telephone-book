@@ -12,6 +12,7 @@ Você precisará ter o **Docker** e o **Docker Compose** instalado.
 
 ```
 docker-compose up
+
 ```
 
 ## Built With
@@ -31,6 +32,15 @@ docker-compose up
 
 - [mongodb](https://www.mongodb.com/)
 
+### Others
+
+- [Docker](https://www.docker.com/)
+- [NGINX](https://www.nginx.com/)
+
 ## Author
 
 - **Édipo Juan** - _github_ - [edipojs](https://github.com/edipojs)
+
+## License
+
+Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes
