@@ -39,7 +39,8 @@ docker-compose up
 
 ## Author
 
-- **Édipo Juan** - _github_ - [edipojuan](https://github.com/edipojuan)
+| [<img src="https://avatars1.githubusercontent.com/u/9813896?v=4&s=115"><br><sub>@edipojuan</sub>](https://github.com/edipojuan) |
+| :---: |
 
 ## License
 
